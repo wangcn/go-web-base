@@ -1,0 +1,50 @@
+[server]
+addr = "127.0.0.1:12000"
+
+[log]
+stdout = true
+level = -1
+# file = "/tmp/mybase.log"
+file_size = 50
+max_backup = 3
+max_age = 7
+
+
+# Redis 配置
+[redis]
+[redis.insight]
+host          = "172.25.20.18"
+port          = 5520
+password      = ""
+database      = 0
+max_retries   = 2
+pool_size     = 5
+ping          = true
+dial_timeout  = 301
+read_timeout  = 500
+write_timeout = 500
+
+# DB 配置
+[db]
+[db.master]
+host          = "127.0.0.1"
+port          = 3306
+username      = "root"
+password      = "root"
+database      = "test"
+charset       = "utf8mb4"
+max_conn      = 10
+max_idle_conn = 5
+ping          = true
+debug = true
+
+# Nsq 配置
+[nsq]
+[nsq.inner]
+consumerAddrs = ["127.0.0.1:4161"]
+dialTimeout = 300
+readTimeout = 50000
+writeTimeout = 500
+maxInFlight = 50
+concurrentHandlers = 4
+producerAddrs = ["127.0.0.1:4150"]
